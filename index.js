@@ -1,18 +1,18 @@
-const dotenv = require('dotenv-extended');
-const fs = require('fs');
+const dotenvExteneded = require('dotenv-extended');
 const EnvironmentPlugin = require('webpack').EnvironmentPlugin;
 
-module.exports = DotenvPlugin;
+module.exports = WebpackDotenvExtendedPlugin;
 
-function DotenvPlugin(options) {
+function WebpackDotenvExtendedPlugin(options) {
   this.options = options || {};
 
+  console.log(options);
   // Load into process.env, and keep track of all the
   // keys we care about for webpack serialization. 
-  this.config = dotenv.load(options) || {};
+  this.config = dotenvExteneded.load(options) || {};
 }
 
-DotenvPlugin.prototype.apply = function(compiler) {
+WebpackDotenvExtendedPlugin.prototype.apply = function(compiler) {
   if (this.options.verbose) {
     const definitions = {};
 
